@@ -120,10 +120,10 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
     ```bash
     $ kubectl get node
-    NAME          STATUS   ROLES   AGE    VERSION
-    10.0.10.112   Ready    node    4m32s   v1.21.5
-    10.0.10.200   Ready    node    4m32s   v1.21.5
-    10.0.10.36    Ready    node    4m28s   v1.21.5
+    NAME          STATUS   ROLES   AGE   VERSION
+    10.0.10.193   Ready    node    10m   v1.21.5
+    10.0.10.194   Ready    node    10m   v1.21.5
+    10.0.10.28    Ready    node    10m   v1.21.5
     ```
 
     > If you see the node's information, then the configuration was successful.

@@ -26,9 +26,9 @@ First, get the node names using `kubectl get node`:
 The output should be similar to the following:
 ```bash
 NAME          STATUS   ROLES   AGE   VERSION
-10.0.10.119   Ready    node    11d   v1.21.5
-10.0.10.175   Ready    node    11d   v1.21.5
-10.0.10.93    Ready    node    11d   v1.21.5
+10.0.10.193   Ready    node    66m   v1.21.5
+10.0.10.194   Ready    node    66m   v1.21.5
+10.0.10.28    Ready    node    66m   v1.21.5
 ```
 
 In the case of OKE, the node name can be the public IP address of the node or the subnet's CIDR block's first IP address. But obviously, a unique string which identifies the node.
@@ -39,18 +39,18 @@ Now check the current pod allocation using the detailed pod information:
 ```
 The output should be similar to the following:
 ```bash
-NAME                             READY   STATUS    RESTARTS   AGE   IP            NODE          NOMINATED NODE   READINESS GATES
-sample-domain1-admin-server      1/1     Running   0          2d    10.244.1.19   10.0.10.93   <none>           <none>
-sample-domain1-managed-server1   1/1     Running   0          2d    10.244.0.26   10.0.10.93    <none>           <none>
-sample-domain1-managed-server2   1/1     Running   0          2d    10.244.0.25   10.0.10.93    <none>           <none>
-sample-domain1-managed-server3   1/1     Running   0          2d    10.244.1.20   10.0.10.93   <none>           <none>
+NAME                             READY   STATUS    RESTARTS   AGE     IP           NODE          NOMINATED NODE   READINESS GATES
+sample-domain1-admin-server      1/1     Running   0          9m25s   10.244.1.4   10.0.10.193   <none>           <none>
+sample-domain1-managed-server1   1/1     Running   0          6m17s   10.244.1.5   10.0.10.193   <none>           <none>
+sample-domain1-managed-server2   1/1     Running   0          4m12s   10.244.1.6   10.0.10.193   <none>           <none>
+sample-domain1-managed-server3   1/1     Running   0          2m7s    10.244.1.7   10.0.10.193   <none>           <none>
 ```
 
 As you can see from the result, Kubernetes deployed the 3 Managed Servers to only one worker nodes. As we have 3 nodes, we will label two nodes and then assign 2 servers to one node and will make one node empty. We just adopt the labelling and domain resource definition modification accordingly.
 
 ## **STEP 2**: Labelling
 
-Knowing the node names, select one which you want to be empty. In this example, this node will be: `10.0.10.175`
+Knowing the node names, select one which you want to be empty. In this example, this node will be: `10.0.10.194`
 
 Label the other nodes. The label can be any string, but let's use `wlservers1` and `wlservers2`. Execute the
 ```bash
@@ -58,10 +58,10 @@ Label the other nodes. The label can be any string, but let's use `wlservers1` a
 ```
 command but replace your node name and label properly e.g.:
 ```bash
-$ kubectl label nodes 10.0.10.93  wlservers1=true
-node/10.0.10.93 labeled
-$ kubectl label nodes 10.0.10.119 wlservers2=true
-node/10.0.10.119 labeled
+$ kubectl label nodes 10.0.10.193  wlservers1=true
+node/10.0.10.193 labeled
+$ kubectl label nodes 10.0.10.28 wlservers2=true
+node/10.0.10.28 labeled
 ```
 ## **STEP 3**: Modify the domain resource definition
 
@@ -109,7 +109,7 @@ The operator according to the changes will start to relocate servers. Poll the p
 The output should be similar to the following:
 ```bash
 NAME                             READY   STATUS    RESTARTS   AGE    IP            NODE          NOMINATED NODE   READINESS GATES
-sample-domain1-admin-server      1/1     Running   0          2d1h   10.244.1.19   10.0.10.119   <none>           <none>
+sample-domain1-admin-server      1/1     Running   0          2d1h   10.244.1.19   10.0.10.193   <none>           <none>
 sample-domain1-managed-server1   1/1     Running   0          2d1h   10.244.0.26   10.0.10.93    <none>           <none>
 sample-domain1-managed-server2   1/1     Running   0          2d1h   10.244.0.25   10.0.10.93    <none>           <none>
 sample-domain1-managed-server3   1/1     Running   0          2d1h   10.244.1.20   10.0.10.119   <none>           <none>

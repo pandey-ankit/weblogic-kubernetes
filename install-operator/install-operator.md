@@ -57,7 +57,7 @@ Execute the following `helm install`:
 The output will be similar to the following:
 ```bash
 NAME: sample-weblogic-operator
-LAST DEPLOYED: Thu Dec  19 13:48:24 2020
+LAST DEPLOYED: Sun Dec 19 07:25:54 2021
 NAMESPACE: sample-weblogic-operator-ns
 STATUS: deployed
 REVISION: 1
@@ -70,7 +70,7 @@ Check the operator pod:
 The output will be similar to the following:
 ```bash
 NAME                                 READY   STATUS    RESTARTS   AGE
-weblogic-operator-67d66b4576-jkp9g   1/1     Running   0          41s
+weblogic-operator-559c95b97d-7zxwf   1/1     Running   0          92s
 ```
 
 Make sure to wait until the pod is in **Running** state.
@@ -81,8 +81,8 @@ Check the operator Helm chart:
 ```
 The output will be similar to the following:
 ```bash
-NAME                            NAMESPACE                       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-sample-weblogic-operator        sample-weblogic-operator-ns     1               2021-12-19 13:48:24.187689635 +0000 UTC deployed        weblogic-operator-3.0.0
+NAME                            NAMESPACE                       REVISION        UPDATED                                 STATUS          CHART                      APP VERSION
+sample-weblogic-operator        sample-weblogic-operator-ns     1               2021-12-19 07:25:54.073084938 +0000 UTC deployed        weblogic-operator-3.0.0
 ```
 
 The WebLogic Server Kubernetes Operator has been installed. You may now **proceed to the next lab**.

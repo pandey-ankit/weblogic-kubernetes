@@ -38,11 +38,11 @@ Check the changes in the number of pods using `kubectl`:
 ```
 The output should be similar to the following:
 ```bash
-NAME                             READY     STATUS        RESTARTS   AGE
-sample-domain1-admin-server      1/1       Running       0          57m
-sample-domain1-managed-server1   1/1       Running       0          56m
-sample-domain1-managed-server2   1/1       Running       0          55m
-sample-domain1-managed-server3   1/1       Running       0          1m
+NAME                             READY   STATUS    RESTARTS   AGE
+sample-domain1-admin-server      1/1     Running   0          18m
+sample-domain1-managed-server1   1/1     Running   0          17m
+sample-domain1-managed-server2   1/1     Running   0          17m
+sample-domain1-managed-server3   1/1     Running   0          75s
 ```
 Soon, Managed Server 3 will appear and will be ready within a few minutes. You can also check the Managed Server scaling action using the WebLogic Server Administration Console:
 
