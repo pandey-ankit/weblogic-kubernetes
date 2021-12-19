@@ -108,21 +108,21 @@ The operator according to the changes will start to relocate servers. Poll the p
 ```
 The output should be similar to the following:
 ```bash
-NAME                             READY   STATUS    RESTARTS   AGE    IP            NODE          NOMINATED NODE   READINESS GATES
-sample-domain1-admin-server      1/1     Running   0          2d1h   10.244.1.19   10.0.10.193   <none>           <none>
-sample-domain1-managed-server1   1/1     Running   0          2d1h   10.244.0.26   10.0.10.93    <none>           <none>
-sample-domain1-managed-server2   1/1     Running   0          2d1h   10.244.0.25   10.0.10.93    <none>           <none>
-sample-domain1-managed-server3   1/1     Running   0          2d1h   10.244.1.20   10.0.10.119   <none>           <none>
+NAME                             READY   STATUS    RESTARTS   AGE     IP             NODE          NOMINATED NODE   READINESS GATES
+sample-domain1-admin-server      1/1     Running   0          5m3s    10.244.0.139   10.0.10.28    <none>           <none>
+sample-domain1-managed-server1   1/1     Running   0          4m14s   10.244.1.9     10.0.10.193   <none>           <none>
+sample-domain1-managed-server2   1/1     Running   0          4m15s   10.244.1.8     10.0.10.193   <none>           <none>
+sample-domain1-managed-server3   1/1     Running   0          4m14s   10.244.0.140   10.0.10.28    <none>           <none>
 ```
 
 ## **STEP 4**: Delete the node assignment
 
 To delete the node assignment, delete the node's label using the `kubectl label nodes <nodename> <labelname>-` command but replace the node name properly:
 ```bash
-$ kubectl label nodes 10.0.10.93 wlservers1-
-node/10.0.10.93 labeled
-$ kubectl label nodes 10.0.10.119 wlservers2-
-node/10.0.10.119 labeled
+$ kubectl label nodes 10.0.10.28 wlservers2-
+node/10.0.10.28 labeled
+$ kubectl label nodes 10.0.10.193 wlservers1-
+node/10.0.10.193 labeled
 ```
 Delete or comment out the (`nodeSelector`) entries you added for the node assignment in your `domain.yaml` and apply:
 
