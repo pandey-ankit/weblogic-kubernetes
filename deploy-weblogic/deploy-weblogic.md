@@ -51,9 +51,9 @@ To deploy WebLogic domain, you need to create a domain resource definition which
 
 We provided for you a `domain.yaml` file that contains a YAML representation of the custom resource object. Please copy it locally:
 ```bash
-<copy>curl -LSs https://oracle.github.io/learning-library/solutions-library/weblogic-kubernetes/domain.v8.yaml >~/domain.yaml</copy>
+<copy>curl -LSs https://github.com/pandey-ankit/weblogic-kubernetes/blob/main/domain.v8.yaml >~/domain.yaml</copy>
 ```
-Review it in your favorite editor or a [browser](https://oracle.github.io/learning-library/solutions-library/weblogic-kubernetes/domain.v8.yaml).
+Review it in your favorite editor or a [browser](https://github.com/pandey-ankit/weblogic-kubernetes/blob/main/domain.v8.yaml).
 
 Create the domain custom resource object with the following command:
 ```bash
@@ -148,5 +148,5 @@ Refresh the page and notice the hostname changes. It reflects the Managed Server
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Maciej Gruszka, Peter Nagy, September 2020
-* **Last Updated By/Date**
+* **Author** - Maciej Gruszka, Peter Nagy
+* **Last Updated By/Date** - December 2021

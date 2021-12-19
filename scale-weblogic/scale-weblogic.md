@@ -68,5 +68,5 @@ Note! Do not use the Console to scale the cluster. The operator controls this op
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Maciej Gruszka, Peter Nagy, September 2020
-* **Last Updated By/Date**
+* **Author** - Maciej Gruszka, Peter Nagy
+* **Last Updated By/Date** - December 2021

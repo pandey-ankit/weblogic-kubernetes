@@ -40,7 +40,7 @@ traefik/traefik \
 The output should be similar to the following:
 ```bash
 NAME: traefik-operator
-LAST DEPLOYED: Fri Mar  6 20:31:53 2020
+LAST DEPLOYED: Fri Dec  17 03:01:38 2021
 NAMESPACE: traefik
 STATUS: deployed
 REVISION: 1
@@ -69,7 +69,6 @@ The output should be similar to the following:
 ```bash
 NAME                         TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)                      AGE
 traefik-operator             LoadBalancer   10.96.50.120   129.146.148.215   443:31388/TCP,80:31282/TCP   48s
-traefik-operator-dashboard   ClusterIP      10.96.206.52   <none>            80/TCP                       48s
 ```
 Please note the EXTERNAL-IP of the *traefik-operator* service. This is the public IP address of the load balancer that you will use to access the WebLogic Server Administration Console and the sample application.
 
@@ -89,11 +88,11 @@ Verify the `helm` charts:
 The output should be similar to the following:
 ```bash
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
-traefik-operator        traefik         1               2020-09-03 13:50:09.199419556 +0000 UTC deployed        traefik-1.87.2  1.7.24
+traefik-operator        traefik         2               2021-12-17 03:01:38.944266827 +0000 UTC deployed        traefik-10.7.12.5.4 
 ```
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
-* **Author** - Maciej Gruszka, Peter Nagy, September 2020
-* **Last Updated By/Date**
+* **Author** - Ankit Pandey, Maciej Gruszka, Peter Nagy
+* **Last Updated By/Date** - December 2021
