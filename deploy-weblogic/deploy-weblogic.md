@@ -13,11 +13,15 @@ Create the domain namespace:
 <copy>kubectl create namespace sample-domain1-ns</copy>
 ```
 Create a Kubernetes secret containing the Administration Server boot credentials:
+
 ```bash
-<copy>kubectl -n sample-domain1-ns create secret generic sample-domain1-weblogic-credentials \
-  --from-literal=username=weblogic \
-  --from-literal=password=welcome1</copy>
+<copy>export WLS_USERNAME=weblogic
+export WLS_PASSWORD=$((< /dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''*+,-./:;<=>?@\^_`|~' | head -c10);(date +%S))
+echo $WLS_PASSWORD
+kubectl create secret generic sample-domain1-weblogic-credentials --from-literal=password=$WLS_PASSWORD --from-literal=username=$WLS_USERNAME -n sample-domain1-ns</copy>
 ```
+
+Note down the Admin Server Password, You need to use it for login to Admin Console.
 
 ## **STEP 2**: Update the Traefik load balancer and operator configuration
 
@@ -130,7 +134,7 @@ The output should be similar to the following:
 ```
 Construct the Administration Console URL and open it in a browser:
 
-Enter the administrative user credentials (weblogic/welcome1) and click **Login**.
+Enter the administrative user credentials  and click **Login**.
 
 ![](images/1.png)
 
