@@ -55,7 +55,7 @@ To deploy WebLogic domain, you need to create a domain resource definition which
 
 We provided for you a `domain.yaml` file that contains a YAML representation of the custom resource object. Please copy it locally:
 ```bash
-<copy>curl -LSs https://raw.githubusercontent.com/pandey-ankit/weblogic-kubernetes/main/domain.v8.yaml  >~/domain.yaml</copy>
+<copy>curl -LSs https://raw.githubusercontent.com/oracle/learning-library/master/solutions-library/weblogic-kubernetes/domain.v8.yaml  >~/domain.yaml</copy>
 ```
 Review it in your favorite editor or a [browser](https://github.com/pandey-ankit/weblogic-kubernetes/blob/main/domain.v8.yaml).
 
@@ -134,7 +134,7 @@ The output should be similar to the following:
 ```
 Construct the Administration Console URL and open it in a browser:
 
-Enter the administrative user credentials  and click **Login**.
+Take the WebLogic Admin Server credential from step 1 of this lab 4 and enter the credentials  and click **Login**.
 
 ![](images/1.png)
 
